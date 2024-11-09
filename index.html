@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round Robin Scheduling</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="round-robin-text logo">
+            <p style="color: aliceblue;font-size: 80%;">Welcome to <b>Round Robin Scheduling</b> Overview!</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rrcalculator.html">Calculator</a></li>
+        </ul>        
+    </header>
+
+    <main>
+        <section id="introduction">
+            <div class="grid-two-column">
+                <div>
+                    <h1>Introduction</h1>
+                    <p>Round Robin (RR) is a preemptive scheduling algorithm designed to manage process
+                        execution in operating systems, particularly in environments where the goal is to ensure fair sharing of CPU time among processes.</p>
+                    <p>It’s widely used in time-sharing systems, where each task or user is allotted a slice of time on the processor, ensuring quick responsiveness.
+                        In a Round Robin system, all processes are treated as equally important, with each receiving a fixed amount of CPU time before it is interrupted,
+                        which makes it one of the most equitable and simple scheduling methods.</p>
+                </div>
+                <div>
+                    <img class="hero" src="images/hero.png" alt="Continuous Round Robin Scheduling">
+                </div>
+            </div>
+        </section>
+
+        <section id="history">
+            <h2><a href="pdf/2407 FRESHMAN VOICES GD REPORT.pdf">History and Development of Round Robin Scheduling</a></h2>
+            <ul>
+                <li><h3>Early Concepts of Time-sharing Systems (1950s–1960s)</h3>
+                    <p>The RR scheduling algorithm emerged as a solution for managing time-sharing systems. Early systems like MIT's CTSS pioneered CPU time sharing.</p>
+                </li>
+                <li><h3>Development of Multitasking and Preemption (1960s–1970s)</h3>
+                    <p>As multitasking systems evolved, RR became essential for sharing CPU time effectively. Multics influenced its development significantly.</p>
+                </li>
+                <li><h3>Formalization of Round Robin (1970s)</h3>
+                    <p>RR was formalized as a distinct scheduling algorithm, gaining recognition for its efficiency in multitasking.</p>
+                </li>
+                <li><h3>Adoption in Modern Operating Systems (1980s–2000s)</h3>
+                    <p>RR became common in operating systems like Unix and Windows, particularly for interactive users.</p>
+                </li>
+                <li><h3>Advances in Hybrid Scheduling (2000s–Present)</h3>
+                    <p>Modern systems have developed more complex scheduling methods, yet RR remains crucial for fairness and resource allocation.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="mechanics">
+            <h2>The Mechanics of Round Robin</h2>
+            <ol>
+                <li><h3>Time Quantum (Time Slice)</h3>
+                    <p>The time quantum, also referred to as a time slice, is the core of the Round Robin algorithm. 
+                        It is a fixed unit of time that determines how long each process gets to run on the CPU 
+                        before being preempted. The selection of an appropriate time quantum is crucial for the 
+                        performance of the system:</p>
+                    <p><b>If the time quantum is too small:</b> The CPU will spend too much time switching between 
+                        processes (context switching), leading to inefficiency and overhead.</p>
+                    <p><b>If the time quantum is too large:</b> The algorithm may behave more like First-Come, 
+                        First-Served (FCFS) scheduling, which negates the benefits of Round Robin in terms of responsiveness.</p>
+                </li>
+                <li><h3>Preemption and Context Switching</h3>
+                    <p>Round Robin is inherently preemptive. Preemption refers to the ability of the operating 
+                        system to interrupt a running process when its allotted time quantum expires, even if the 
+                        process is not yet finished. This contrasts with non-preemptive algorithms, where processes 
+                        run to completion before another can start.</p>
+                </li>
+                <li><h3>Process Queue</h3>
+                    <p>In Round Robin, all processes reside in a ready queue, which operates on a First-In, First-Out (FIFO) basis. 
+                        The process at the front of the queue gets the CPU first. When its time 
+                        quantum expires or it completes execution, it is either sent to the back of the queue (if not 
+                        finished) or removed (if completed). The next process in line gets its turn with the CPU.</p>
+                </li>
+                <li><h3>Multitasking and Fairness</h3>
+                    <p>Round Robin excels in multitasking environments, where it is essential to share resources 
+                        fairly. Every process, regardless of its priority or importance, receives an equal share of CPU 
+                        time. This ensures that no single process can monopolize the CPU, making the system 
+                        responsive and equitable. This is why RR is favored in interactive systems (e.g., user 
+                        interfaces, real-time applications) where the user expects prompt feedback from the 
+                        system.</p>
+                </li>
+            </ol>
+        </section>
+
+        <section id="advantages-disadvantages">
+            <div class="grid-two-column">
+                <div>
+                    <h2>Advantages</h2>
+                    <ol>
+                        <li><h3>Equitable CPU Sharing</h3>
+                            <p>RR guarantees that every process gets an equal share of the CPU, 
+                            making it a fair scheduling algorithm. This fairness is critical in time-sharing environments, 
+                            where multiple users and applications expect an equal slice of CPU time.</p>
+                        </li>
+                        <li><h3>Short Response Time</h3>
+                            <p>Since processes get frequent, albeit short, CPU bursts, the system 
+                                can maintain a high level of responsiveness. Users of interactive systems benefit from the 
+                                quick feedback provided by RR.</p>
+                        </li>
+                        <li><h3>Avoidance of Starvation</h3>
+                            <p>Unlike algorithms like Shortest Job Next (SJN) or Priority 
+                                Scheduling, RR ensures that no process is starved. Each process is guaranteed to receive 
+                                CPU time within a maximum of n-1 cycles.</p>
+                        </li>
+                    </ol>
+                </div>
+                <div>
+                    <h2>Disadvantages</h2>
+                    <ol>
+                        <li><h3>Context Switching Overhead</h3>
+                            <p>Frequent context switching can become a significant 
+                                drawback, particularly when the time quantum is small. The overhead from saving 
+                                and loading process states during each switch can lead to reduced CPU efficiency.</p>
+                        </li>
+                        <li><h3>Increased Turnaround Time</h3>
+                            <p>Round Robin may lead to longer turnaround times 
+                                for CPU-bound processes. If the time quantum is small, CPU-intensive processes will 
+                                take many cycles to complete, increasing their overall turnaround time compared to 
+                                non-preemptive algorithms.</p>
+                        </li>
+                        <li><h3>Sensitivity to Time Quantum</h3>
+                            <p>The performance of RR depends heavily on the 
+                                choice of time quantum. A poorly chosen time quantum can either lead to excessive 
+                                context switching (if too small) or reduce responsiveness and fairness (if too large).</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusion">
+            <h2>Conclusion</h2>
+            <p>Round Robin scheduling is a simple yet effective algorithm for ensuring fairness and 
+                responsiveness in multitasking systems. While its performance depends heavily on the 
+                choice of the time quantum, its equitable CPU allocation and avoidance of starvation make it 
+                a solid choice for time-sharing and interactive systems. By understanding the mechanics, 
+                advantages, and trade-offs of Round Robin, system designers can better utilize it to optimize 
+                resource sharing and process execution in their operating systems.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p style="color: aliceblue;">OS Mini Project | Submitted By: Group 3<br><br> R Ananth Yadav [70572200056], Narahari Abhinav [70572200031], Harsh Bang [70572200027], Khushal Baldava [70572200038], V Vaishnavi [70572200045]<br><br>
+        Submitted To: Asst. Prof. Wasiha Tasneem</p>
+        <hr>
+        <p style="color: aliceblue;">SVKM'S NMIMS Hyderabad<br>Deemed-to-be-UNIVERSITY</p>
+    </footer>
+</body>
+</html>

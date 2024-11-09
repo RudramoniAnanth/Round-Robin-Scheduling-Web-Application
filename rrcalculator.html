@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round Robin Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="round-robin-text logo">
+            <p>Round Robin <b>Calculator</b></p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rrcalculator.html">Calculator</a></li>
+        </ul>        
+    </header>
+    
+    <main>
+        <section class="input-section">
+            <h2>Input</h2>
+            <label for="arrivalTimes">Arrival Times</label>
+            <input type="text" id="arrivalTimes" placeholder="1 3 2 5 4">
+            
+            <label for="burstTimes">Burst Times</label>
+            <input type="text" id="burstTimes" placeholder="12 7 6 10 1">
+            
+            <label for="timeQuantum">Time Quantum</label>
+            <input type="number" id="timeQuantum" placeholder="2">
+            
+            <button id="solveButton" class="button">Solve</button>
+        </section>
+        
+        <section class="output-section">
+            <h2>Output</h2>
+            <div id="ganttChart"></div>
+            <table id="outputTable">
+                <thead>
+                    <tr>
+                        <th>Job</th>
+                        <th>Arrival Time (AT)</th>
+                        <th>Burst Time (BT)</th>
+                        <th>Completion Time (CT)</th>
+                        <th>Turnaround Time (CT-AT)</th>
+                        <th>Waiting Time (TAT-BT)</th>
+                        <th>Response Time (Start Time-AT)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic rows will be inserted here -->
+                </tbody>
+            </table>
+        </section>
+
+        <section id="metrics" class="metrics">
+            <h2>Metrics</h2>
+            <p id="avgTurnaroundTime">Average Turnaround Time: <span>0</span></p>
+            <p id="avgWaitingTime">Average Waiting Time: <span>0</span></p>
+            <p id="cpuUtilization">CPU Utilization: <span>0%</span></p>
+            <p id="throughput">Throughput: <span>0 jobs/sec</span></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>OS Mini Project | Submitted By: Group 3<br> SVKM'S NMIMS HYDERABAD</p>
+    </footer>
+
+    <script src="rr.js"></script>
+</body>
+</html>

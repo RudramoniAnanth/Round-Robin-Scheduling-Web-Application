@@ -1,0 +1,266 @@
+/* Enhanced styles.css */
+:root {
+    --primary-color: #264653;
+    --secondary-color: #2a9d8f;
+    --accent-color: #e9c46a;
+    --background-color: #f4f4f9;
+    --text-color: #333;
+    --header-footer-text-color: #ffffff; /* Set to pure white for visibility */
+    --shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    --transition: all 0.4s ease;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif; /* Changed font style */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #ffffff; /* White text color */
+    padding: 0.8rem 3rem;
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem; /* Increased base font size */
+    font-weight: 700; /* Bold for better visibility */
+    letter-spacing: 0.05em;
+    transition: var(--transition);
+}
+
+header:hover {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+}
+
+.logo, .round-robin-text {
+    font-size: 2.4rem; /* Larger font size for the main message */
+    font-weight: bold;
+    color: #ffffff; /* Ensure the text color is white */
+    margin-left: 1rem;
+    transition: var(--transition);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.8rem;
+}
+
+.nav-links a {
+    color: #ffffff; /* White color for better contrast */
+    text-decoration: none;
+    font-weight: 700; /* Bold font weight */
+    font-size: 1.3rem; /* Larger font size */
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.3); /* Slightly stronger hover effect */
+    transform: translateY(-3px);
+}
+
+main {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 1.5rem;
+}
+
+section {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+}
+
+.grid-two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.hero {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.hero:hover {
+    transform: scale(1.05);
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.6rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h2 a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 0.2rem;
+    transition: color 0.3s ease;
+}
+
+h2 a:hover {
+    color: var(--primary-color);
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+p {
+    margin: 1rem 0;
+    text-align: justify;
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.button {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: white;
+    padding: 0.9rem 2.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+.button:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.input-section, .output-section {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow);
+}
+
+.input-section input {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.input-section input:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(233, 196, 106, 0.3);
+}
+
+#outputTable, #metrics {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 1rem;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+
+th {
+    background: var(--secondary-color);
+    color: white;
+    font-weight: 700;
+}
+
+tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+tr:hover {
+    background: #e3f2fd;
+}
+
+footer {
+    background: var(--primary-color);
+    color: #ffffff; /* White text color for better readability */
+    text-align: center;
+    padding: 2.5rem;
+    font-size: 1.3rem; /* Increased font size */
+    font-weight: 700; /* Bold font weight */
+    letter-spacing: 0.05em;
+    box-shadow: var(--shadow);
+}
+
+footer p {
+    margin: 0.5rem 0;
+}
+
+footer hr {
+    border-color: rgba(255, 255, 255, 0.2);
+    width: 80%;
+    margin: 1rem auto;
+}
+
+/* Gantt Chart Styles */
+#ganttChart {
+    display: flex; /* Use Flexbox to arrange items horizontally */
+    flex-direction: row; /* Ensure items are in a row */
+    align-items: center; /* Center items vertically */
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#ganttChart div {
+    display: flex; /* Ensure the content inside the div is aligned */
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+    padding: 10px 15px;
+    background-color: lightgray;
+    color: black;
+    border-radius: 5px;
+    min-width: 50px;
+    text-align: center;
+    font-weight: bold;
+}
